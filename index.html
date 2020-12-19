@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Shoppies: Movie awards for entrepreneurs</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="">
+        <div class="container">
+            <div class="flex">
+                <h2>The Shoopies</h2>
+                <div class="mode_container" onclick="changeMode()">
+                    <img src="images/icon-moon.png" alt="icon-moon">
+                    <button class="btn_change_mode" class="mode">Toggle Light/Dark Mode</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+     <!-- Search and Nomination Section -->
+     <section class="search">
+        <div class="container">
+            <div class="flex">
+                <!-- Search -->
+                <div class="search_container">
+                    <label for="Search"></label>
+                    <img src="images/icon-search.png" alt="icon-search">
+                    <input type="text" name="search" id="search" placeholder="Search for a Movie by Title">
+                    <button id="search-btn" onclick="searchMovie()">Search </button>
+                    <p class="error"></p>
+                </div>
+
+                <!-- Nomination -->
+                <div class="nomination_container">
+                    <button onclick="show_nominations()">Nominations - <span id="number-of-nomination">0</span> </button>
+                    <div class="nominated hide">
+                     
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+      <!-- Movie Section  -->
+      <section class="movies_container">
+        <div class="container">
+            <h1 id="search-title"></h1>
+           <div id="movies">
+            
+           </div>
+        </div>
+    </section>
+
+
+    <script src="js/app.js"></script>
+</body>
+
+</html>

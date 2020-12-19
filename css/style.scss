@@ -1,0 +1,257 @@
+    @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
+    // Colors
+    $dark_elements: hsl(209,
+    23%,
+    22%);
+    $dark_background: hsl(207,
+    26%,
+    17%);
+    $dark_text: hsl(200,
+    15%,
+    8%);
+    
+    $white:#fff;
+    $light_text: hsl(0,
+    0%,
+    100%);
+    $light_background: #FAFAFA; 
+    
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        outline: none;
+        text-decoration: none;
+    }
+    
+    body {
+        font-family: 'Nunito Sans', sans-serif;
+        font-weight: 600;
+        background:  $light_background;
+        color:  $dark_text;
+    }
+
+    .dark{
+        background:  $dark_background !important;
+        color:  $light_text !important;
+    }
+
+    .dark_sec{
+        background:  $dark_elements !important;
+    }
+    
+    .container {
+        max-width: 1200px;
+        width: 86%;
+        margin: 0 auto;
+        padding: 40px 0;
+    }
+    
+    a {
+        color: inherit;
+    }
+    
+    .flex {
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    .grid {
+        display: grid;
+    }
+    
+    .hide {
+        display: none;
+    }
+    
+    button {
+        background: none;
+        border: none;
+        color: inherit;
+    }
+    
+    span {
+        font-weight: 300;
+        margin-left: 10px;
+    }
+    
+    .dark_element_bg{
+        background-color: $dark_elements !important;
+    }
+
+    // Header Section
+    header{
+        background-color: $white;
+        .container{
+            .flex{
+                justify-content: space-between;
+                
+            }
+        }
+    }
+
+   //Search and Nomination Section
+section.search{
+    button:active{
+        background-color: lightblue;
+    }
+    .container{
+        .flex{
+            .search_container{
+                position: relative;
+                width: 50%;
+                input {
+                    padding: 20px;
+                    padding-left: 46px;
+                    border: none;
+                    background-color: lightgrey;
+                    width: 100%;
+                    max-width: 600px;
+                    font-size: 16px;
+                }
+                img {
+                    position: absolute;
+                    left: 20px;
+                    top: 20px
+                }
+                button{
+                    margin-top: 10px;
+                   background-color: blue; 
+                   padding:20px;
+                    color:white;
+                    font-size: 20px;
+                }
+                button:active{
+                    background-color: lightblue;
+                }
+               
+                .error{
+                    padding: 16px 0;
+                    color:red;
+                }
+                // End of Search Container
+            }
+            .nomination_container{
+                position: relative;
+                width: 30%;
+                button{
+                    margin-top:20px;
+                    width: 100%;
+                    background-color: blue;
+                    color: #fff;
+                    font-size: 20px;
+                    padding: 20px;
+                }
+                button:active{
+                    background-color: lightblue;
+                }
+                .nominated{ 
+                    background-color: $white;
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    .nominee{
+                    display:none;
+                    padding:10px;  
+                    justify-content: space-between;
+                    display: flex;
+                    align-items: center;
+                       border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
+                    img{
+                           width: 50px;
+                           height: 50px;
+                       }
+                       span{
+                        font-weight: 600;
+                        font-size: 20px;
+                        margin:0 10px;
+                        
+                        }
+                        .delete{
+                            max-width: 50px;
+                            padding:10px;
+                            background-color: red;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+    //Movie Section
+section.movies_container {
+       
+        .container {
+            h1{
+                margin-bottom: 20px;
+                font-size: 40px;
+            }
+            #movies{
+                max-width: 1200px;
+                margin:0 auto;
+                display: grid;
+                grid-template-columns: (auto, 1fr);
+                grid-template-columns: repeat(3, 400px);
+                gap: 40px;
+                .movie {
+                    background-color: grey;
+                    color:white;
+                    max-width: 400px;        
+                    width: 100%;
+                    overflow: hidden;
+                    -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+                    -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+                    box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.03);
+                    h3{
+                        padding:20px;
+                    }
+                    img {
+                       width: 100%;
+                       height: 500px;
+                    }
+                    .content {
+                        padding: 20px;
+                        h5 {
+                            margin-bottom: 20px;
+                        }
+                        p {
+                            margin-bottom: 20px;
+                        }
+                        button{
+                            background-color: green;
+                            padding:20px;
+                            color:white
+                        }
+    
+                        button:active{
+                            background-color: lightgreen;
+                        }
+                    }
+                }
+                .current-movie{
+                    border:5px solid green;
+                }
+            }
+        }
+}
+
+ //Media Screen Styling max-width: 800px
+ @media only screen and (max-width: 800px) {
+            
+   //Search and Nomination Section
+            section.search{
+                .container{
+                   .flex{
+                       flex-direction: column;
+                        input,button{
+                            width: 100%;
+                            max-width: 800px!important;
+                            margin-bottom: 40px;
+                        }
+
+                   }
+                }
+            }
+            
+        }

@@ -1,0 +1,254 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  outline: none;
+  text-decoration: none;
+}
+
+body {
+  font-family: 'Nunito Sans', sans-serif;
+  font-weight: 600;
+  background: #FAFAFA;
+  color: #111517;
+}
+
+.dark {
+  background: #202c37 !important;
+  color: white !important;
+}
+
+.dark_sec {
+  background: #2b3945 !important;
+}
+
+.container {
+  max-width: 1200px;
+  width: 86%;
+  margin: 0 auto;
+  padding: 40px 0;
+}
+
+a {
+  color: inherit;
+}
+
+.flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.grid {
+  display: -ms-grid;
+  display: grid;
+}
+
+.hide {
+  display: none;
+}
+
+button {
+  background: none;
+  border: none;
+  color: inherit;
+}
+
+span {
+  font-weight: 300;
+  margin-left: 10px;
+}
+
+.dark_element_bg {
+  background-color: #2b3945 !important;
+}
+
+header {
+  background-color: #fff;
+}
+
+header .container .flex {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+section.search button:active {
+  background-color: lightblue;
+}
+
+section.search .container .flex .search_container {
+  position: relative;
+  width: 50%;
+}
+
+section.search .container .flex .search_container input {
+  padding: 20px;
+  padding-left: 46px;
+  border: none;
+  background-color: lightgrey;
+  width: 100%;
+  max-width: 600px;
+  font-size: 16px;
+}
+
+section.search .container .flex .search_container img {
+  position: absolute;
+  left: 20px;
+  top: 20px;
+}
+
+section.search .container .flex .search_container button {
+  margin-top: 10px;
+  background-color: blue;
+  padding: 20px;
+  color: white;
+  font-size: 20px;
+}
+
+section.search .container .flex .search_container button:active {
+  background-color: lightblue;
+}
+
+section.search .container .flex .search_container .error {
+  padding: 16px 0;
+  color: red;
+}
+
+section.search .container .flex .nomination_container {
+  position: relative;
+  width: 30%;
+}
+
+section.search .container .flex .nomination_container button {
+  margin-top: 20px;
+  width: 100%;
+  background-color: blue;
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+}
+
+section.search .container .flex .nomination_container button:active {
+  background-color: lightblue;
+}
+
+section.search .container .flex .nomination_container .nominated {
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+section.search .container .flex .nomination_container .nominated .nominee {
+  display: none;
+  padding: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+section.search .container .flex .nomination_container .nominated .nominee img {
+  width: 50px;
+  height: 50px;
+}
+
+section.search .container .flex .nomination_container .nominated .nominee span {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+section.search .container .flex .nomination_container .nominated .nominee .delete {
+  max-width: 50px;
+  padding: 10px;
+  background-color: red;
+}
+
+section.movies_container .container h1 {
+  margin-bottom: 20px;
+  font-size: 40px;
+}
+
+section.movies_container .container #movies {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto, 1fr;
+      grid-template-columns: auto, 1fr;
+  -ms-grid-columns: (400px)[3];
+      grid-template-columns: repeat(3, 400px);
+  gap: 40px;
+}
+
+section.movies_container .container #movies .movie {
+  background-color: grey;
+  color: white;
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  -webkit-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.03);
+}
+
+section.movies_container .container #movies .movie h3 {
+  padding: 20px;
+}
+
+section.movies_container .container #movies .movie img {
+  width: 100%;
+  height: 500px;
+}
+
+section.movies_container .container #movies .movie .content {
+  padding: 20px;
+}
+
+section.movies_container .container #movies .movie .content h5 {
+  margin-bottom: 20px;
+}
+
+section.movies_container .container #movies .movie .content p {
+  margin-bottom: 20px;
+}
+
+section.movies_container .container #movies .movie .content button {
+  background-color: green;
+  padding: 20px;
+  color: white;
+}
+
+section.movies_container .container #movies .movie .content button:active {
+  background-color: lightgreen;
+}
+
+section.movies_container .container #movies .current-movie {
+  border: 5px solid green;
+}
+
+@media only screen and (max-width: 800px) {
+  section.search .container .flex {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  section.search .container .flex input, section.search .container .flex button {
+    width: 100%;
+    max-width: 800px !important;
+    margin-bottom: 40px;
+  }
+}
