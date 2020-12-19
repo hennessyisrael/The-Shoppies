@@ -50,7 +50,7 @@ a {
 }
 
 .hide {
-  display: none;
+  display: none !important;
 }
 
 button {
@@ -62,10 +62,6 @@ button {
 span {
   font-weight: 300;
   margin-left: 10px;
-}
-
-.dark_element_bg {
-  background-color: #2b3945 !important;
 }
 
 header {
@@ -91,7 +87,7 @@ section.search .container .flex .search_container input {
   padding: 20px;
   padding-left: 46px;
   border: none;
-  background-color: lightgrey;
+  background-color: light;
   width: 100%;
   max-width: 600px;
   font-size: 16px;
@@ -177,6 +173,24 @@ section.search .container .flex .nomination_container .nominated .nominee .delet
   background-color: red;
 }
 
+section.banner {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+  height: 200px;
+  background-color: green;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
 section.movies_container .container h1 {
   margin-bottom: 20px;
   font-size: 40px;
@@ -195,7 +209,7 @@ section.movies_container .container #movies {
 }
 
 section.movies_container .container #movies .movie {
-  background-color: grey;
+  background-color: #2b3945;
   color: white;
   max-width: 400px;
   width: 100%;
@@ -210,7 +224,7 @@ section.movies_container .container #movies .movie h3 {
 
 section.movies_container .container #movies .movie img {
   width: 100%;
-  height: 500px;
+  height: 350px;
 }
 
 section.movies_container .container #movies .movie .content {

@@ -47,6 +47,7 @@
         padding: 40px 0;
     }
     
+
     a {
         color: inherit;
     }
@@ -61,7 +62,7 @@
     }
     
     .hide {
-        display: none;
+        display: none!important;
     }
     
     button {
@@ -75,9 +76,7 @@
         margin-left: 10px;
     }
     
-    .dark_element_bg{
-        background-color: $dark_elements !important;
-    }
+   
 
     // Header Section
     header{
@@ -90,6 +89,7 @@
         }
     }
 
+   
    //Search and Nomination Section
 section.search{
     button:active{
@@ -104,7 +104,7 @@ section.search{
                     padding: 20px;
                     padding-left: 46px;
                     border: none;
-                    background-color: lightgrey;
+                    background-color: light;
                     width: 100%;
                     max-width: 600px;
                     font-size: 16px;
@@ -179,6 +179,17 @@ section.search{
     }
 }
 
+section.banner{
+    max-width: 1200px;
+    margin:0 auto;
+    text-align: center;
+    height: 200px;
+    background-color: green;
+    color:white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
     //Movie Section
 section.movies_container {
        
@@ -195,7 +206,7 @@ section.movies_container {
                 grid-template-columns: repeat(3, 400px);
                 gap: 40px;
                 .movie {
-                    background-color: grey;
+                    background-color: $dark_elements;
                     color:white;
                     max-width: 400px;        
                     width: 100%;
@@ -208,7 +219,7 @@ section.movies_container {
                     }
                     img {
                        width: 100%;
-                       height: 500px;
+                       height: 350px;
                     }
                     .content {
                         padding: 20px;
