@@ -8,13 +8,13 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body class="dark">
+<body onunload="set_saved_nomination()" onload="get_saved_nomination()" class="dark">
 
     <!-- Header Section -->
     <header class="dark_sec">
         <div class="container">
             <div class="flex">
-                <h2>The Shoopies</h2>
+                <h2>The Shoppies</h2>
                 <div class="nomination_container">
                     <button  onclick="show_nominations()">Nominations - <span id="number-of-nomination">0</span> </button>
                     <div class="nominated dark_sec hide">
@@ -34,7 +34,6 @@
                     <label for="Search"></label>
                     <img src="images/icon-search.png" alt="icon-search">
                     <input type="text" name="search" id="search" placeholder="Search for a Movie by Title">
-                    <button  id="search-btn" onclick="searchMovie()">Search </button>
                     <p class="error"></p>
                 </div>
 

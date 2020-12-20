@@ -11,7 +11,22 @@ const nominated = document.querySelector(".nominated");
 // Movie Objects Data
 let MoviesData = [];
 //Nominations Data 
-const Nominations = [];
+let Nominations = [];
+
+
+
+
+//Get Saved Nomination before leaving page
+function get_saved_nomination(){
+    let json_str = getCookie('c_nominations');
+    let saved_nomination =  JSON.parse(json_str);
+    console.log(saved_nomination);
+    if(Nominations.length <= 0 && saved_nomination.length > 0 ){
+        Nominations = [...saved_nomination]
+        nomination_to_html()
+    }
+}
+
 
 //Load Movies Data to Html
 // movies.innerHTML = "";
@@ -23,13 +38,14 @@ function movie_to_html(){
     //  Search Result
         for (i = 0; i < MoviesData.length; i++) {
             check_if_nominated(MoviesData[i].Title);
-            let movie_title =  MoviesData[i].Title
+            //Escape charcters
+            let movie_title =  MoviesData[i].Title.replace(/'"[.*+?^${}()|[\]\\]/g, '\\$&');  
             movies.innerHTML += `
             <div class="movie">
                         <div class="content">
-                            <h5>${ MoviesData[i].Title}</h5>
+                            <h5>${ movie_title}</h5>
                             <p>Year of Release : ${ MoviesData[i].Year}</p>
-                            <button ${disabled} class="nominate-btn" data-btn-title="${movie_title}" onclick='add_to_nomination(${i}, "${movie_title}", event )'>Add to Nomination</button>
+                            <button ${disabled} class="nominate-btn" data-btn-title="${movie_title}" onclick='add_to_nomination(${i},"${movie_title}", event )'>Add to Nomination</button>
                         </div>
                 </div>
             `
@@ -52,8 +68,20 @@ function getMovie(moviename) {
                     return;
                 }                
                 response.json().then(function(data) {
-                    MoviesData=data.Search;
-                    movie_to_html();
+                    
+                    if(data.Search){
+                        MoviesData=data.Search;
+                        movie_to_html();
+                        error_ele.innerHTML = "";
+                        movies.classList.remove("hide")
+
+                    }
+                    else{
+                        error_ele.innerHTML = "Movie Title Doesn't Exist, Please try searching again with the correct title";
+                        movies.classList.add("hide")
+                        
+                    }
+                   
                 });
             }
         )
@@ -67,16 +95,17 @@ function getMovie(moviename) {
 
 // Search and Display Movie Content
 function searchMovie(){
-    if(search.value != ''){
-        getMovie(search.value);
-        search_title.innerHTML = `You Search for ${search.value}`;
-        movie_to_html()
-       
+    if(search){
+        search_value = search.value
+        getMovie(search_value);
+        search_title.innerHTML = `You Search for "${search.value}"`;
+        movie_to_html();
     }
 }
 
-
-
+search.addEventListener('keyup', function(){     
+    setTimeout(searchMovie,4000);  
+})
 
 // Add Movie to Nominations 
 function add_to_nomination(movie_id,movie_title, e){
@@ -113,7 +142,7 @@ function add_to_nomination(movie_id,movie_title, e){
 //Nominatiomn data to html
 function nomination_to_html(){
     nominated.innerHTML ="";
-    if(Nominations){
+    if(Nominations && Nominations.length > 0){
         for (i = 0; i < Nominations.length; i++) {
             nominated.innerHTML += `
                     <div class ="nominee">
@@ -129,7 +158,7 @@ function nomination_to_html(){
         
  }
 
-  //Show Nominated Movies 
+//Show Nominated Movies DOM
 function show_nominations(){
     if(Nominations.length > 0 ){
         nominated.classList.toggle("hide");
@@ -199,3 +228,41 @@ function check_if_nominated(title){
 
 
 
+//SetSaved Nomination before leaving page
+function set_saved_nomination(){
+    if(Nominations.length > 0){
+        let arr = [...Nominations];
+        let json_str = JSON.stringify(arr);
+        createCookie('c_nominations', json_str);
+    }
+}
+
+// Create Cookie Function
+function createCookie(name, value, days) {
+    var expires;
+    if (days) {
+        var date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toGMTString();
+    }
+    else {
+        expires = "";
+    }
+    document.cookie = name + "=" + value + expires + "; path=/";
+}
+
+// Get Cookie Function
+function getCookie(c_name) {
+    if (document.cookie.length > 0) {
+        c_start = document.cookie.indexOf(c_name + "=");
+        if (c_start != -1) {
+            c_start = c_start + c_name.length + 1;
+            c_end = document.cookie.indexOf(";", c_start);
+            if (c_end == -1) {
+                c_end = document.cookie.length;
+            }
+            return unescape(document.cookie.substring(c_start, c_end));
+        }
+    }
+    return "";
+}

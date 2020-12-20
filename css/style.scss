@@ -216,6 +216,7 @@ section.movies_container {
                 grid-template-columns: repeat(3, 400px);
                 gap: 40px;
                 .movie {
+                    border-top:5px solid green;
                     background-color: $dark_elements;
                     color:white;
                     max-width: 400px;        

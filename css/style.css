@@ -217,6 +217,7 @@ section.movies_container .container #movies {
 }
 
 section.movies_container .container #movies .movie {
+  border-top: 5px solid green;
   background-color: #2b3945;
   color: white;
   max-width: 400px;
