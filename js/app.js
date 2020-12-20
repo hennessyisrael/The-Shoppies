@@ -22,18 +22,20 @@ function movie_to_html(){
         if(MoviesData && MoviesData.length > 0){
     //  Search Result
         for (i = 0; i < MoviesData.length; i++) {
+            check_if_nominated(MoviesData[i].Title);
+            let movie_title =  MoviesData[i].Title
             movies.innerHTML += `
             <div class="movie">
                         <div class="content">
                             <h5>${ MoviesData[i].Title}</h5>
                             <p>Year of Release : ${ MoviesData[i].Year}</p>
-                            <button class="nominate-btn" data-btn-title="${ MoviesData[i].Title}" onclick='add_to_nomination(${i}, "${MoviesData[i].Title}", event )'>Add to Nomination</button>
+                            <button ${disabled} class="nominate-btn" data-btn-title="${movie_title}" onclick='add_to_nomination(${i}, "${movie_title}", event )'>Add to Nomination</button>
                         </div>
                 </div>
             `
         
         } 
-        disable_nominated_button();     
+        
     }
 }
 
@@ -65,15 +67,6 @@ function getMovie(moviename) {
 
 // Search and Display Movie Content
 function searchMovie(){
-    
-    // IF Movie Title is aleady added to Search List
-    for (i = 0; i < Nominations.length; i++) {
-        if(Nominations[i].title == MoviesData[i]['title']){
-                    
-            }
-        }
-
-
     if(search.value != ''){
         getMovie(search.value);
         search_title.innerHTML = `You Search for ${search.value}`;
@@ -100,54 +93,20 @@ function add_to_nomination(movie_id,movie_title, e){
         title: movie_title,
     }
 
-
+    // Push Newly Nominated Movie to the Nomination Array
     Nominations.push(Movie);
 
+    // Display Nomionation Html
     nomination_to_html()
     
-    
+    //Check and Show banner to user
     banner_nomination_check()
+
+    //Diasble Nomination Button
+    e.target.disabled = true;
    }
+ 
 }
-
-
-
-
-
-
-function disable_nominated_button(){
-    let btn = document.querySelectorAll('.nominate-btn');
-    // console.log(btn)
-    // for (i = 0; i < btn.length; i++){
-    //     for (j = 0; j < Nominations.length; j++){
-    //         if(btn[i].dataset.btnTitle == Nominations[j].title){
-    //             console.log("True")
-    //             // btn[i].disabled = true;
-    //             // btn[i].backgroundColor = "lightgrey";
-    //             // console.log(btn[i].disabled)
-    //             // console.log(Nominations[j].title)
-    //         }
-    //     }
-    // }
-}
-
-
-
-function delete_nominated_movie(id){
-    nominated.innerHTML = "";
-    //Remove Movie For Nominations array
-    for (i = 0; i < Nominations.length; i++) {
-        if(Nominations[i].id == id){
-            Nominations.splice(i, 1);  
-        }  
-    }
-
-        // Update Nomination Html
-        nomination_to_html();  
-
-        banner_nomination_check();
-}
-
 
 
 
@@ -177,6 +136,47 @@ function show_nominations(){
     }
 }
 
+function delete_nominated_movie(id){
+    nominated.innerHTML ="";
+    let btnTitle ="";
+
+    //Remove Movie For Nominations array
+    for (i = 0; i < Nominations.length; i++) {
+        if(Nominations[i].id === id){
+            btnTitle = Nominations[i].title;
+            if(!Nominations.splice(i, 1)){
+                return
+            }   
+             
+        }   
+    }
+    
+        // Update Nomination Html
+        for (i = 0; i < Nominations.length; i++) {
+            nominated.innerHTML += `
+                <div class ="nominee">
+                    <span>${Nominations[i].title}</span>
+                    <button class="delete" onclick="delete_nominated_movie(${Nominations[i].id})">X</button>
+                </div>
+                `
+        }
+      
+        //Update length of Nomination 
+        number_of_nominations.innerHTML = Nominations.length; 
+        
+        //Check and Show banner to user
+         banner_nomination_check()
+
+        const btns = document.querySelectorAll(".nominate-btn");
+        for (i = 0; i < btns.length; i++) {
+            if(btns[i].dataset.btnTitle == btnTitle){
+                btns[i].disabled = false;
+            }
+        }
+}
+
+
+
 // Display a banner to the user when Nominatios Array length is up to 5
 function banner_nomination_check(){
     banner = document.querySelector('.banner');
@@ -187,14 +187,15 @@ function banner_nomination_check(){
             banner.classList.remove('hide')
         }
 }
-
-function disable_nominated_button(){
-    let btn = document.querySelectorAll('.nominate-btn');
-    console.log(btn)
-    for (i = 0; i < btn.length; i++){
-        for (j = 0; j < Nominations.length; j++){
-           console.log(i);
-           console.log(j)
-        }
+let disabled  = "";
+function check_if_nominated(title){
+    disabled  = "";
+    let check = Nominations.some( key => key['title'] === title )
+    if(check){
+        disabled = "disabled";
     }
+    
 }
+
+
+

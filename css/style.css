@@ -64,6 +64,12 @@ span {
   margin-left: 10px;
 }
 
+button:disabled,
+button[disabled] {
+  background-color: grey !important;
+  color: #666666;
+}
+
 header {
   background-color: #fff;
 }
@@ -72,6 +78,65 @@ header .container .flex {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+header .container .flex .nomination_container {
+  position: relative;
+  width: 30%;
+}
+
+header .container .flex .nomination_container button {
+  width: 100%;
+  background-color: blue;
+  color: #fff;
+  font-size: 20px;
+  padding: 20px;
+}
+
+header .container .flex .nomination_container button:active {
+  background-color: lightblue;
+}
+
+header .container .flex .nomination_container .nominated {
+  background-color: #fff;
+  position: absolute;
+  z-index: 2;
+  width: 100%;
+}
+
+header .container .flex .nomination_container .nominated .nominee {
+  display: none;
+  padding: 10px;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+header .container .flex .nomination_container .nominated .nominee img {
+  width: 50px;
+  height: 50px;
+}
+
+header .container .flex .nomination_container .nominated .nominee span {
+  font-weight: 600;
+  font-size: 20px;
+  margin: 0 10px;
+}
+
+header .container .flex .nomination_container .nominated .nominee .delete {
+  max-width: 50px;
+  padding: 10px;
+  background-color: red;
 }
 
 section.search button:active {
@@ -114,63 +179,6 @@ section.search .container .flex .search_container button:active {
 section.search .container .flex .search_container .error {
   padding: 16px 0;
   color: red;
-}
-
-section.search .container .flex .nomination_container {
-  position: relative;
-  width: 30%;
-}
-
-section.search .container .flex .nomination_container button {
-  margin-top: 20px;
-  width: 100%;
-  background-color: blue;
-  color: #fff;
-  font-size: 20px;
-  padding: 20px;
-}
-
-section.search .container .flex .nomination_container button:active {
-  background-color: lightblue;
-}
-
-section.search .container .flex .nomination_container .nominated {
-  background-color: #fff;
-  position: absolute;
-  z-index: 2;
-  width: 100%;
-}
-
-section.search .container .flex .nomination_container .nominated .nominee {
-  display: none;
-  padding: 10px;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.3);
-}
-
-section.search .container .flex .nomination_container .nominated .nominee img {
-  width: 50px;
-  height: 50px;
-}
-
-section.search .container .flex .nomination_container .nominated .nominee span {
-  font-weight: 600;
-  font-size: 20px;
-  margin: 0 10px;
-}
-
-section.search .container .flex .nomination_container .nominated .nominee .delete {
-  max-width: 50px;
-  padding: 10px;
-  background-color: red;
 }
 
 section.banner {

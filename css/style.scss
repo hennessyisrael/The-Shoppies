@@ -76,6 +76,13 @@
         margin-left: 10px;
     }
     
+    // All idsbled button styling
+    button:disabled,
+    button[disabled]{
+    background-color: grey!important;
+    color: #666666;
+    }
+
    
 
     // Header Section
@@ -84,6 +91,50 @@
         .container{
             .flex{
                 justify-content: space-between;
+                align-items: center;
+                .nomination_container{
+                    position: relative;
+                    width: 30%;
+                    button{
+                        width: 100%;
+                        background-color: blue;
+                        color: #fff;
+                        font-size: 20px;
+                        padding: 20px;
+                    }
+                    button:active{
+                        background-color: lightblue;
+                    }
+                    .nominated{ 
+                        background-color: $white;
+                        position: absolute;
+                        z-index: 2;
+                        width: 100%;
+                        .nominee{
+                        display:none;
+                        padding:10px;  
+                        justify-content: space-between;
+                        display: flex;
+                        align-items: center;
+                           border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
+                        img{
+                               width: 50px;
+                               height: 50px;
+                           }
+                           span{
+                            font-weight: 600;
+                            font-size: 20px;
+                            margin:0 10px;
+                            
+                            }
+                            .delete{
+                                max-width: 50px;
+                                padding:10px;
+                                background-color: red;
+                            }
+                        }
+                    }
+                }
                 
             }
         }
@@ -131,50 +182,9 @@ section.search{
                 }
                 // End of Search Container
             }
-            .nomination_container{
-                position: relative;
-                width: 30%;
-                button{
-                    margin-top:20px;
-                    width: 100%;
-                    background-color: blue;
-                    color: #fff;
-                    font-size: 20px;
-                    padding: 20px;
+                .save{
+
                 }
-                button:active{
-                    background-color: lightblue;
-                }
-                .nominated{ 
-                    background-color: $white;
-                    position: absolute;
-                    z-index: 2;
-                    width: 100%;
-                    .nominee{
-                    display:none;
-                    padding:10px;  
-                    justify-content: space-between;
-                    display: flex;
-                    align-items: center;
-                       border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
-                    img{
-                           width: 50px;
-                           height: 50px;
-                       }
-                       span{
-                        font-weight: 600;
-                        font-size: 20px;
-                        margin:0 10px;
-                        
-                        }
-                        .delete{
-                            max-width: 50px;
-                            padding:10px;
-                            background-color: red;
-                        }
-                    }
-                }
-            }
         }
     }
 }
