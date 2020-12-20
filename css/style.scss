@@ -85,69 +85,69 @@
 
    
 
-    // Header Section
-    header{
-        background-color: $white;
-        .container{
-            .flex{
-                justify-content: space-between;
-                align-items: center;
-                .nomination_container{
-                    position: relative;
-                    width: 30%;
-                    button{
-                        width: 100%;
-                        background-color: blue;
-                        color: #fff;
+// Header Section
+header{
+    .container{
+        max-width: 1600px;
+        width: 90%;
+        .flex{
+            justify-content: space-between;
+            align-items: center;
+            .nomination_container{
+                position: relative;
+                width: 40%;
+                button{
+                    width: 100%;
+                    background-color: blue;
+                    color: #fff;
+                    font-size: 20px;
+                    padding: 20px;
+                }
+                button:active{
+                    background-color: lightblue;
+                }
+                .nominated{ 
+                    background-color: $white;
+                    position: absolute;
+                    z-index: 2;
+                    width: 100%;
+                    .nominee{
+                    display:none;
+                    padding:10px;  
+                    justify-content: space-between;
+                    display: flex;
+                    align-items: center;
+                        border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
+                    img{
+                            width: 50px;
+                            height: 50px;
+                        }
+                        span{
+                        font-weight: 600;
                         font-size: 20px;
-                        padding: 20px;
-                    }
-                    button:active{
-                        background-color: lightblue;
-                    }
-                    .nominated{ 
-                        background-color: $white;
-                        position: absolute;
-                        z-index: 2;
-                        width: 100%;
-                        .nominee{
-                        display:none;
-                        padding:10px;  
-                        justify-content: space-between;
-                        display: flex;
-                        align-items: center;
-                           border-bottom: 1px solid rgba($color: #000000, $alpha: .3);
-                        img{
-                               width: 50px;
-                               height: 50px;
-                           }
-                           span{
-                            font-weight: 600;
-                            font-size: 20px;
-                            margin:0 10px;
-                            
-                            }
-                            .delete{
-                                max-width: 50px;
-                                padding:10px;
-                                background-color: red;
-                            }
+                        margin:0 10px;
+                        
+                        }
+                        .delete{
+                            max-width: 50px;
+                            padding:10px;
+                            background-color: red;
                         }
                     }
                 }
-                
             }
+            
         }
     }
+}
 
-   
+
    //Search and Nomination Section
 section.search{
     button:active{
         background-color: lightblue;
     }
     .container{
-        .flex{
             .search_container{
                 position: relative;
                 width: 50%;
@@ -155,10 +155,13 @@ section.search{
                     padding: 20px;
                     padding-left: 46px;
                     border: none;
-                    background-color: light;
+                    background-color: rgba($color:white, $alpha: .6);;
                     width: 100%;
                     max-width: 600px;
                     font-size: 16px;
+                }
+                input:focus{
+                    background-color: white;
                 }
                 img {
                     position: absolute;
@@ -182,11 +185,8 @@ section.search{
                 }
                 // End of Search Container
             }
-                .save{
-
-                }
+                
         }
-    }
 }
 
 section.banner{
@@ -212,8 +212,7 @@ section.movies_container {
                 max-width: 1200px;
                 margin:0 auto;
                 display: grid;
-                grid-template-columns: (auto, 1fr);
-                grid-template-columns: repeat(3, 400px);
+                grid-template-columns: repeat(4, 1fr);
                 gap: 40px;
                 .movie {
                     border-top:5px solid green;
@@ -226,7 +225,8 @@ section.movies_container {
                     -moz-box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.3);
                     box-shadow: 0px 0px 7px 0px rgba(0, 0, 0, 0.03);
                     h3{
-                        padding:20px;
+                        line-height: 30px;
+                        margin-bottom: 20px;
                     }
                     img {
                        width: 100%;
@@ -262,18 +262,19 @@ section.movies_container {
  @media only screen and (max-width: 800px) {
             
    //Search and Nomination Section
-            section.search{
-                .container{
-                   .flex{
-                       flex-direction: column;
-                        input,button{
-                            width: 100%;
-                            max-width: 800px!important;
-                            margin-bottom: 40px;
-                        }
-
-                   }
+           .search_container{
+               width: 100% !important;
+                #search{
+                    min-width: 300px;
                 }
+           }
+
+            #movies{
+                max-width: 800px;
+                margin:0 auto;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr)!important;
+                gap: 20px;
             }
             
         }

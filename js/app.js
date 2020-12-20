@@ -23,7 +23,8 @@ function get_saved_nomination(){
     console.log(saved_nomination);
     if(Nominations.length <= 0 && saved_nomination.length > 0 ){
         Nominations = [...saved_nomination]
-        nomination_to_html()
+        nomination_to_html();
+        banner_nomination_check();
     }
 }
 
@@ -39,13 +40,13 @@ function movie_to_html(){
         for (i = 0; i < MoviesData.length; i++) {
             check_if_nominated(MoviesData[i].Title);
             //Escape charcters
-            let movie_title =  MoviesData[i].Title.replace(/'"[.*+?^${}()|[\]\\]/g, '\\$&');  
+            let movie_title =  MoviesData[i].Title.replace(/' '"[.*+?^${}()|[\]\\]/g, '\\$&');  
             movies.innerHTML += `
             <div class="movie">
                         <div class="content">
-                            <h5>${ movie_title}</h5>
+                            <h3>${ movie_title}</h3>
                             <p>Year of Release : ${ MoviesData[i].Year}</p>
-                            <button ${disabled} class="nominate-btn" data-btn-title="${movie_title}" onclick='add_to_nomination(${i},"${movie_title}", event )'>Add to Nomination</button>
+                            <button ${disabled} class="nominate-btn" data-btn-title="${movie_title}" onclick="add_to_nomination(${i},\`${movie_title}\`, event )">Add to Nomination</button>
                         </div>
                 </div>
             `
@@ -57,9 +58,9 @@ function movie_to_html(){
 
 
 
-//Get Movies
+//Get Movies from OMDBAPI
 function getMovie(moviename) {
-    return fetch(`http://omdbapi.com/?i=tt3896198&apikey=7497c18&s=${moviename}&type=movie&page=9`)
+    return fetch(`http://omdbapi.com/?i=tt3896198&apikey=7497c18&s=${moviename}&type=movie`)
         .then(
             function(response) {
                 if (response.status !== 200) {
@@ -104,7 +105,7 @@ function searchMovie(){
 }
 
 search.addEventListener('keyup', function(){     
-    setTimeout(searchMovie,4000);  
+    setTimeout(searchMovie,3000);  
 })
 
 // Add Movie to Nominations 
@@ -266,3 +267,5 @@ function getCookie(c_name) {
     }
     return "";
 }
+
+// let something =  "kdkkdkd'jdkdkdkdkdkd"

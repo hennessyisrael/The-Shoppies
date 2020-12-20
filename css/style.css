@@ -70,8 +70,9 @@ button[disabled] {
   color: #666666;
 }
 
-header {
-  background-color: #fff;
+header .container {
+  max-width: 1600px;
+  width: 90%;
 }
 
 header .container .flex {
@@ -85,7 +86,7 @@ header .container .flex {
 
 header .container .flex .nomination_container {
   position: relative;
-  width: 30%;
+  width: 40%;
 }
 
 header .container .flex .nomination_container button {
@@ -143,28 +144,32 @@ section.search button:active {
   background-color: lightblue;
 }
 
-section.search .container .flex .search_container {
+section.search .container .search_container {
   position: relative;
   width: 50%;
 }
 
-section.search .container .flex .search_container input {
+section.search .container .search_container input {
   padding: 20px;
   padding-left: 46px;
   border: none;
-  background-color: light;
+  background-color: rgba(255, 255, 255, 0.6);
   width: 100%;
   max-width: 600px;
   font-size: 16px;
 }
 
-section.search .container .flex .search_container img {
+section.search .container .search_container input:focus {
+  background-color: white;
+}
+
+section.search .container .search_container img {
   position: absolute;
   left: 20px;
   top: 20px;
 }
 
-section.search .container .flex .search_container button {
+section.search .container .search_container button {
   margin-top: 10px;
   background-color: blue;
   padding: 20px;
@@ -172,11 +177,11 @@ section.search .container .flex .search_container button {
   font-size: 20px;
 }
 
-section.search .container .flex .search_container button:active {
+section.search .container .search_container button:active {
   background-color: lightblue;
 }
 
-section.search .container .flex .search_container .error {
+section.search .container .search_container .error {
   padding: 16px 0;
   color: red;
 }
@@ -209,10 +214,8 @@ section.movies_container .container #movies {
   margin: 0 auto;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: auto, 1fr;
-      grid-template-columns: auto, 1fr;
-  -ms-grid-columns: (400px)[3];
-      grid-template-columns: repeat(3, 400px);
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
   gap: 40px;
 }
 
@@ -228,7 +231,8 @@ section.movies_container .container #movies .movie {
 }
 
 section.movies_container .container #movies .movie h3 {
-  padding: 20px;
+  line-height: 30px;
+  margin-bottom: 20px;
 }
 
 section.movies_container .container #movies .movie img {
@@ -263,15 +267,19 @@ section.movies_container .container #movies .current-movie {
 }
 
 @media only screen and (max-width: 800px) {
-  section.search .container .flex {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
+  .search_container {
+    width: 100% !important;
   }
-  section.search .container .flex input, section.search .container .flex button {
-    width: 100%;
-    max-width: 800px !important;
-    margin-bottom: 40px;
+  .search_container #search {
+    min-width: 300px;
+  }
+  #movies {
+    max-width: 800px;
+    margin: 0 auto;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: (1fr)[2] !important;
+        grid-template-columns: repeat(2, 1fr) !important;
+    gap: 20px;
   }
 }
