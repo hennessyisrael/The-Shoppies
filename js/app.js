@@ -68,7 +68,7 @@ function movie_to_html(){
 
 //Fetch Movies Data from OMDBAPI
 function getMovie(moviename) {
-    return fetch(`http://omdbapi.com/?i=tt3896198&apikey=7497c18&s=${moviename}&type=movie`)
+    return fetch(`https://omdbapi.com/?i=tt3896198&apikey=7497c18&s=${moviename}&type=movie`)
         .then(
             function(response) {
                 if (response.status !== 200) {
