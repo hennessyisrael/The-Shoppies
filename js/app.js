@@ -10,37 +10,42 @@ const nominated = document.querySelector(".nominated");
 
 // Movie Objects Data
 let MoviesData = [];
+
 //Nominations Data 
 let Nominations = [];
 
 
 
 
-//Get Saved Nomination before leaving page
+//Get Saved Nomination 
 function get_saved_nomination(){
     let json_str = getCookie('c_nominations');
     let saved_nomination =  JSON.parse(json_str);
-    console.log(saved_nomination);
     if(Nominations.length <= 0 && saved_nomination.length > 0 ){
+        //Clone Nomationtion from the cookie to Nomination Array
         Nominations = [...saved_nomination]
+        //Output Nomination 
         nomination_to_html();
+
+        // Display Banner when Nomination is upto 5
         banner_nomination_check();
     }
 }
 
 
-//Load Movies Data to Html
-// movies.innerHTML = "";
 
+//Load Movies Data to Html
 function movie_to_html(){
-    //Sort Movies In Desc Order
+    
     movies.innerHTML = "";
+
         if(MoviesData && MoviesData.length > 0){
-    //  Search Result
+            // Loop Through the Movies Data that were returned
         for (i = 0; i < MoviesData.length; i++) {
             check_if_nominated(MoviesData[i].Title);
             //Escape charcters
             let movie_title =  MoviesData[i].Title.replace(/' '"[.*+?^${}()|[\]\\]/g, '\\$&');  
+            // Add Data to Html
             movies.innerHTML += `
             <div class="movie">
                         <div class="content">
@@ -58,7 +63,7 @@ function movie_to_html(){
 
 
 
-//Get Movies from OMDBAPI
+//Fetch Movies Data from OMDBAPI
 function getMovie(moviename) {
     return fetch(`http://omdbapi.com/?i=tt3896198&apikey=7497c18&s=${moviename}&type=movie`)
         .then(
@@ -71,13 +76,17 @@ function getMovie(moviename) {
                 response.json().then(function(data) {
                     
                     if(data.Search){
-                        MoviesData=data.Search;
+                        // Add Returned Seach Data to MoviesData Array
+                        MoviesData  =data.Search;
+                        // Output Movies in Html
                         movie_to_html();
+
                         error_ele.innerHTML = "";
                         movies.classList.remove("hide")
 
                     }
                     else{
+                        // If movie can't be fetch, Output userfiendly error
                         error_ele.innerHTML = "Movie Title Doesn't Exist, Please try searching again with the correct title";
                         movies.classList.add("hide")
                         
@@ -86,9 +95,11 @@ function getMovie(moviename) {
                 });
             }
         )
-        //Log Error to console for dev analysis
+    //    if FetchApi return error
         .catch(function(err) {
+             //Log Error to console for dev analysis
             console.log('Fetch Error :-S', err);
+            //Output userfiendly error
             error_ele.innerHTML = "Movie Title Doesn't Exist, Please try searching again with the correct title";
         });
 }
@@ -97,13 +108,18 @@ function getMovie(moviename) {
 // Search and Display Movie Content
 function searchMovie(){
     if(search){
+        // Get Search Value
         search_value = search.value
+        // Fetch the Move
         getMovie(search_value);
+        //Output what user search
         search_title.innerHTML = `You Search for "${search.value}"`;
+        //output movie to html
         movie_to_html();
     }
 }
 
+// Listen for User Input and Search Movie 3 Seconds after Keyup
 search.addEventListener('keyup', function(){     
     setTimeout(searchMovie,3000);  
 })
