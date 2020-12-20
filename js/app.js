@@ -20,16 +20,19 @@ let Nominations = [];
 //Get Saved Nomination 
 function get_saved_nomination(){
     let json_str = getCookie('c_nominations');
-    let saved_nomination =  JSON.parse(json_str);
-    if(Nominations.length <= 0 && saved_nomination.length > 0 ){
-        //Clone Nomationtion from the cookie to Nomination Array
-        Nominations = [...saved_nomination]
-        //Output Nomination 
-        nomination_to_html();
-
-        // Display Banner when Nomination is upto 5
-        banner_nomination_check();
-    }
+    if(json_str){
+        let saved_nomination = JSON.parse(json_str);
+        if(Nominations.length <= 0 && saved_nomination.length > 0 ){
+            //Clone Nomationtion from the cookie to Nomination Array
+            Nominations = [...saved_nomination]
+            //Output Nomination 
+            nomination_to_html();
+    
+            // Display Banner when Nomination is upto 5
+            banner_nomination_check();
+        }
+    }   
+    
 }
 
 
