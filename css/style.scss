@@ -262,6 +262,18 @@ section.movies_container {
  @media only screen and (max-width: 800px) {
             
    //Search and Nomination Section
+            .nomination_container{
+                width: 100%!important;
+            }
+            h1{
+                font-size: 20px!important;
+            }
+            .flex{
+                flex-direction: column;
+                button{
+                    margin-top: 40px;
+                }
+            }
            .search_container{
                width: 100% !important;
                 #search{
@@ -270,11 +282,33 @@ section.movies_container {
            }
 
             #movies{
+                margin-top: 40px!important;
                 max-width: 800px;
                 margin:0 auto;
                 display: grid;
                 grid-template-columns: repeat(2, 1fr)!important;
-                gap: 20px;
+                gap: 20px!important;
             }
             
         }
+
+         //Media Screen Styling max-width: 800px
+ @media only screen and (max-width: 500px) {
+            
+    //Search and Nomination Section
+            .search_container{
+                width: 100% !important;
+                 #search{
+                     min-width: 300px;
+                 }
+            }
+ 
+             #movies{
+                 max-width: 800px;
+                 margin:0 auto;
+                 display: grid;
+                 grid-template-columns:1fr!important;
+                 gap: 20px!important;
+             }
+             
+         }
