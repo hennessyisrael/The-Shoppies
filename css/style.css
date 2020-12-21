@@ -28,7 +28,7 @@ body {
   max-width: 1200px;
   width: 86%;
   margin: 0 auto;
-  padding: 40px 0;
+  padding: 20px 0;
 }
 
 a {
@@ -202,6 +202,7 @@ section.banner {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  margin-bottom: 30px;
 }
 
 section.movies_container .container h1 {
@@ -280,7 +281,7 @@ section.movies_container .container #movies .current-movie {
             flex-direction: column;
   }
   .flex button {
-    margin-top: 40px;
+    margin-top: 30px;
   }
   .search_container {
     width: 100% !important;

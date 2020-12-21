@@ -44,7 +44,7 @@
         max-width: 1200px;
         width: 86%;
         margin: 0 auto;
-        padding: 40px 0;
+        padding: 20px 0;
     }
     
 
@@ -189,6 +189,7 @@ section.search{
         }
 }
 
+//Banner Section
 section.banner{
     max-width: 1200px;
     margin:0 auto;
@@ -199,6 +200,7 @@ section.banner{
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 30px;
 }
     //Movie Section
 section.movies_container {
@@ -271,7 +273,7 @@ section.movies_container {
             .flex{
                 flex-direction: column;
                 button{
-                    margin-top: 40px;
+                    margin-top: 30px;
                 }
             }
            .search_container{
@@ -292,7 +294,7 @@ section.movies_container {
             
         }
 
-         //Media Screen Styling max-width: 800px
+//Media Screen Styling max-width: 500px
  @media only screen and (max-width: 500px) {
             
     //Search and Nomination Section
