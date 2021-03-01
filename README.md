@@ -1,5 +1,5 @@
 # The Shoppies
-The Shoppies is a Shopify project challenge I undertook when applying for the Front-end Internship
+The Shoppies is a Shopify project challenge i undertook during my application for the Front-end Internship
 
 
 ## Installation
