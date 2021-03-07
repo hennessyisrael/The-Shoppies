@@ -11,9 +11,9 @@ Web View Link: https://hennessyisrael.github.io/The-Shoppies
 
 ## Tools
 
-```
+`
 VANILA JAVASCRIPT
-```
+`
 
 
 ## License
