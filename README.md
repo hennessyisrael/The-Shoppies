@@ -6,7 +6,7 @@ The Shoppies is a website for users to nominate up to 5 of their favorite movies
 
 No Installation Required.
 
-Web View Link : https://hennessyisrael.github.io/The-Shoppies/.
+Web View Link : https://israelakinola.github.io/The-Shoppies/
 
 ## Tools
 
