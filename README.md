@@ -1,5 +1,5 @@
 # The Shoppies
-The Shoppies is a Shopify project challenge i undertook during my application for the Front-end Internship
+The Shoppies is a website for users to nominate up to 5 of their favorite movies.
 
 
 ## Installation
