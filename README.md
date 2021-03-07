@@ -12,10 +12,7 @@ Web View Link: https://hennessyisrael.github.io/The-Shoppies
 ## Tools
 
 ```
-HTML
-SASS
 VANILA JAVASCRIPT
-
 ```
 
 
