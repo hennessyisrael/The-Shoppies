@@ -28,7 +28,7 @@ VANILA JAVASCRIPT
 
 - Users can share noiminations on Twitter and Facebook.
 
-<img width="1280" alt="Screen Shot 2020-09-08 at 5 08 32 AM" src="https://user-images.githubusercontent.com/10281272/92456770-5cefe900-f191-11ea-90a7-6c56d099dbfe.png">
+<img width="1280" alt="The Shoppies Preview " src="https://github.com/hennessyisrael/The-Shoppies/blob/e7a41b4394563d72baa40076fb9c52e7cb038378/images/The_shoppies_app.png">
 
 
 ## License
