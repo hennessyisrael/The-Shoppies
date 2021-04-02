@@ -85,7 +85,7 @@
 
    
 
-// Header Section
+// Header and Nomination  Section
 header{
     .container{
         max-width: 1600px;
@@ -133,6 +133,12 @@ header{
                             margin:0;
                         }
                     }
+                    .share{
+                        background-color: 	#1DA1F2;
+                        padding: 20px 0;
+                        text-align: center;
+                        font-weight: 600;
+                    }
                 }
             }
             
@@ -141,7 +147,7 @@ header{
 }
 
 
-   //Search and Nomination Section
+   //Search Section
 section.search{
     button:active{
         background-color: lightblue;

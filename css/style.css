@@ -139,6 +139,13 @@ header .container .flex .nomination_container .nominated .nominee .delete {
   margin: 0;
 }
 
+header .container .flex .nomination_container .nominated .share {
+  background-color: #1DA1F2;
+  padding: 20px 0;
+  text-align: center;
+  font-weight: 600;
+}
+
 section.search button:active {
   background-color: lightblue;
 }

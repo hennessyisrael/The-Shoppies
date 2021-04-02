@@ -5,6 +5,7 @@ const search_title = document.querySelector("#search-title");
 const error_ele = document.querySelector(" .error");
 const number_of_nominations = document.querySelector("#number-of-nomination");
 const nominated = document.querySelector(".nominated");
+const twitter_share =  document.getElementById('twitter-share');
 
 
 
@@ -171,7 +172,13 @@ function nomination_to_html(){
                     </div>
                 `
         
-              } 
+              }
+              
+           nominated.innerHTML += `
+           <div class="share">
+            <a id="twitter-share" target="_blank" href="https://twitter.com/intent/tweet?text=My Top 5 favorite movies are ${Nominations[1].title}, ${Nominations[1].title}, ${Nominations[1].title}, ${Nominations[1].title}, ${Nominations[1].title}." class="twitter-share-button">Share as a Tweet</a>
+        </div>
+           `
         //Update length of Nomination 
         number_of_nominations.innerHTML = Nominations.length; 
     }
