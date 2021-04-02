@@ -5,7 +5,7 @@ const search_title = document.querySelector("#search-title");
 const error_ele = document.querySelector(" .error");
 const number_of_nominations = document.querySelector("#number-of-nomination");
 const nominated = document.querySelector(".nominated");
-const twitter_share =  document.getElementById('twitter-share');
+
 
 
 
